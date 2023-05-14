@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/signup_form_design.css' %}">
+{% endblock extracss %}
+
+{% block title %}SignUp Page{% endblock title %}
+
+{% block content %}
+    <div class="container"><form class=" g-3 form-signup my-5" method="post">
+        {% csrf_token %}
+        <h3 class="text-center">SignUp Form</h3>
+        <div class="row g-3">
+
+            <div class="col-12">
+                <label for="inputUsername" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username"
+                    required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputFirstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="inputFirstName" name="firstname" placeholder="First Name"
+                    required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="inputLastName" name="lastname" placeholder="Last Name"
+                    required>
+            </div>
+
+
+            <div class="col-12">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Enter your Email"
+                    required>
+            </div>
+
+            <div class="col-12">
+                <label for="inputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Password"
+                    required>
+            </div>
+
+            <div class="col-12">
+                <label for="inputPassword2" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="inputPassword2" name="password2"
+                    placeholder="Confirm password" required>
+            </div>
+
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Present Address</label>
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Parmanent Address</label>
+                <input type="text" class="form-control" id="inputAddress2" name="address2"
+                    placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-12">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity" name="city" placeholder="City">
+            </div>
+
+            {% comment %} <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>State1</option>
+                    <option>State2</option>
+                    <option>State3</option>
+                    <option>State4</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="1230">
+            </div> {% endcomment %}
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Show password
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Sign Up</button>
+                <a href="{% url 'homepage' %}" class="btn btn-primary btn-sm mt-3 w-100">Back</a>
+            </div>
+        </div>
+
+    </form>
+{% endblock content %}

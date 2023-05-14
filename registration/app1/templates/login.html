@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extracss %}
+
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        background-image: url(../static/images/img.jpg);
+        background-size: cover;
+    }
+
+    .form-login {
+        background-color: rgba(240, 250, 210, 0.35);
+        border-radius: 10px;
+        color: #fff;
+        padding: 20px;
+        max-width: 450px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .from-div {
+        margin-top: 260px;
+    }
+
+    .btn-primary:hover {
+        background: orange !important;
+    }
+</style>
+
+{% endblock extracss %}
+
+
+{% block content %}
+
+<div class="from-div">
+    <form method="post" action="{% url 'loginpage' %}" class="form-login">
+
+        <h3 class="text-center">LogIn Form</h3>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="userHelp"
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">LogIn</button>
+        <a href="{% url 'homepage' %}" class="btn btn-danger btn-sm">Back</a>
+
+    </form>
+</div>
+
+{% endblock content %}
